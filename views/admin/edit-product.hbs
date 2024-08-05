@@ -1,0 +1,18 @@
+{{!-- Se extiende del diseño principal --}}
+{{> layout}}
+
+<h1>Editar Producto</h1>
+
+<form action="/admin/edit-product/{{product._id}}" method="POST">
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" value="{{product.name}}" required>
+    
+    <label for="price">Precio:</label>
+    <input type="number" name="price" value="{{product.price}}" required>
+    
+    <label for="description">Descripción:</label>
+    <textarea name="description">{{product.description}}</textarea>
+    
+    <button type="submit">Actualizar</button>
+</form>
+

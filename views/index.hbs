@@ -1,0 +1,17 @@
+{{> layout}}
+
+<h1>Productos</h1>
+
+<div class="products">
+    {{#each products}}
+        <div class="product">
+            <h2>{{this.name}}</h2>
+            <p>Precio: ${{this.price}}</p>
+            <form action="/cart/add" method="POST">
+                <input type="hidden" name="productId" value="{{this._id}}">
+                <button type="submit">Añadir al carrito</button>
+            </form>
+        </div>
+    {{/each}}
+</div>
+

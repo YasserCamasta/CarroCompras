@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos Disponibles</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Productos Disponibles</h1>
+  {{#if products.length}}
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each products}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td>${{this.price}}</td>
+            <td>{{this.description}}</td>
+            <td>
+              <form action="/cart/add" method="post">
+                <input type="hidden" name="productId" value="{{this._id}}">
+                <input type="number" name="quantity" min="1" required>
+                <button type="submit">Añadir al Carrito</button>
+              </form>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <p>No hay productos disponibles.</p>
+  {{/if}}
+</body>
+</html>

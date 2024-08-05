@@ -1,0 +1,26 @@
+{{> layout}}
+
+<h1>Órdenes</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre del Cliente</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Detalles</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each orders}}
+            <tr>
+                <td>{{this.customerName}}</td>
+                <td>{{this.createdAt.toLocaleDateString}}</td>
+                <td>${{this.total}}</td>
+                <td>
+                    <a href="/orders/{{this._id}}">Ver Detalles</a>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

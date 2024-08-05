@@ -1,0 +1,28 @@
+{{!-- Se extiende del diseño principal --}}
+{{!> layout}}
+
+<h1>Productos</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td>${{this.price}}</td>
+                <td>
+                    <a href="/admin/edit-product/{{this._id}}">Editar</a>
+                    <a href="/admin/delete-product/{{this._id}}" onclick="return confirm('¿Estás seguro?');">Eliminar</a>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+<a href="/admin/add-product">Agregar Nuevo Producto</a>
+

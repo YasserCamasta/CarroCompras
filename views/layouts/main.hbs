@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/styles.css">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/cart">Carrito</a></li>
+                {{#if user}}
+                    {{#if user.isAdmin}}
+                        <li><a href="/admin/products">Administrar Productos</a></li>
+                        <li><a href="/orders">Órdenes</a></li>
+                    {{/if}}
+                    <li><a href="/users/logout">Cerrar Sesión</a></li>
+                {{else}}
+                    <li><a href="/users/login">Iniciar Sesión</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {{{body}}}
+    </main>
+    <footer>
+        <p>&copy; 2024 Vintage Store</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{{#extend "main"}}
+  {{#content "body"}}
+    <h1>Compras Realizadas</h1>
+    <ul>
+      {{#each orders}}
+        <li>
+          Cliente: {{this.customerName}}<br>
+          Fecha: {{this.date}}<br>
+          Total: ${{this.total}}<br>
+          Productos:
+          <ul>
+            {{#each this.items}}
+              <li>{{this.product.name}} - ${{this.product.price}} x {{this.quantity}}</li>
+            {{/each}}
+          </ul>
+        </li>
+      {{/each}}
+    </ul>
+  {{/content}}
+{{/extend}}
